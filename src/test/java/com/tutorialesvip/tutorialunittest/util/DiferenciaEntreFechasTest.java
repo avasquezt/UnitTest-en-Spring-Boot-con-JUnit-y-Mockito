@@ -12,17 +12,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class DiferenciaEntreFechasTest {
 
     @Autowired
-    DiferenciaEntreFechas diferenciaEntreFechas;
+    private DiferenciaEntreFechas diferenciaEntreFechas;
 
     @Test
     void calculateYearsOfIndependency() {
+        LocalDate today = LocalDate.now();
+
         diferenciaEntreFechas = new DiferenciaEntreFechas();
         String fechaIndependencia = "27/02/1844";
 
         Period resultado = diferenciaEntreFechas.calculateYearsOfIndependency(fechaIndependencia);
 
-        Assertions.assertEquals(2,resultado.getMonths() );
-        Assertions.assertEquals(29,resultado.getDays() );
-        Assertions.assertEquals(176,resultado.getYears() );
+        Assertions.assertEquals(8,resultado.getMonths() );
+        Assertions.assertEquals(8,resultado.getDays() );
+        Assertions.assertEquals(178,resultado.getYears() );
     }
 }
